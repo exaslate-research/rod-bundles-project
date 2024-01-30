@@ -1,0 +1,10 @@
+foamCleanTutorials
+fluentMeshToFoam Mesh01rod_block_meter_31stJan.msh
+decomposePar
+mpirun -np 8 pisoFoam -parallel
+reconstructPar
+
+
+check the post-processing result in the paraview
+
+Google drive: https://drive.google.com/drive/folders/1BuHgrTzeswwMEwp9mNJe41rSdc7rtqzh?usp=sharing
