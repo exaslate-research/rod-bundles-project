@@ -1,0 +1,8 @@
+**/postProcessing/
+**/processor*/
+**/constant/polyMesh/
+*.swp
+**/0.*/
+**/1.*/
+**/1/
+**/tmp/
