@@ -1,0 +1,137 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2306                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+scale   0.001;
+
+vertices
+(    
+/*
+    (0 0 0) // 0
+    (0.0635 0 0)
+    (0.0635 0.1 0)
+    (0 0.1 0)
+    (0 0 0.0635) // 4
+    (0.0635 0 0.0635)
+    (0.0635 0.1 0.0635)
+    (0 0.1 0.0635)
+*/
+  
+    (0 0 0) // 0
+    (63.5 0 0)
+    (63.5 100 0)
+    (0 100 0)
+    (0 0 63.5) // 4
+    (63.5 0 63.5)
+    (63.5 100 63.5)
+    (0 100 63.5)
+   
+);
+
+blocks
+(
+    //hex (0 1 2 3 4 5 6 7) (64 100 64) simpleGrading (1 1 1) 	//dx = dy = dz = 1.0
+    //hex (0 1 2 3 4 5 6 7) (128 200 128) simpleGrading (1 1 1) 	//dx = dy = dz = 1.0
+    hex (0 1 2 3 4 5 6 7) (32 50 32) simpleGrading (1 1 1) //dx = dy = dz = 2.0
+    //hex (0 1 2 3 4 5 6 7) (80 125 80) //dx = dy = dz = 0.8  
+    //simpleGrading 
+    //(
+    	//1 		// x direction
+    	//(
+            //(0.05 0.3 4)    	// 5% x-dir, 30% cells, expansion = 4
+            //(0.9 0.4 1)    	// 90% x-dir, 40% cells, expansion = 1
+            //(0.05 0.3 0.25) 	// 5% x-dir, 30% cells, expansion = 0.25 (1/4)
+    	//)     	
+    	//1
+    	//(
+    	  //(0.1 0.5 10)	// 10% y-dir, 50% cells, expansion ratio = 10
+    	  //(0.9 0.5 0.1)	// 90% y-dir, 50% cells, expansion ratio = 0.1
+            //(0.05 0.3 4)    	// 5% y-dir, 30% cells, expansion = 4
+            //(0.9 0.4 1)    	// 90% y-dir, 40% cells, expansion = 1
+            //(0.05 0.3 0.25) 	// 5% y-dir, 30% cells, expansion = 0.25 (1/4)
+    	//) 		
+    	//1		// z 
+    	//(
+            //(0.05 0.3 4)    	// 5% z-dir, 30% cells, expansion = 4
+            //(0.9 0.4 1)    	// 90% z-dir, 40% cells, expansion = 1
+            //(0.05 0.3 0.25) 	// 5% z-dir, 30% cells, expansion = 0.25 (1/4)
+    	//)     	
+    //) 	  
+    //hex (0 1 2 3 4 5 6 7) (127 200 127) simpleGrading (1 1 1)  // dx = dy = dz = 0.5, optimum aspect ratio (try to maintain as a square)
+    //hex (0 1 2 3 4 5 6 7) (50 788 50) simpleGrading (1 1 1)
+);
+
+edges
+(
+);
+
+boundary
+(
+    top
+    {
+        type patch;
+        faces
+        (
+            (3 7 6 2)
+        );
+    }
+    bottom
+    {
+        type patch;
+        faces
+        (
+            (1 5 4 0)
+        );
+    }
+    left
+    {
+        type wall;
+        faces
+        (
+            (0 4 7 3)
+        );
+    }
+    right
+    {
+        type wall;
+        faces
+        (
+            (2 6 5 1)
+        );
+    }
+    front
+    {
+        type wall;
+        faces
+        (
+            (4 5 6 7)
+        );
+    }
+    back
+    {
+        type wall;
+        faces
+        (
+            (0 3 2 1)
+        );
+    }
+);
+
+mergePatchPairs
+(
+);
+
+
+// ************************************************************************* //
