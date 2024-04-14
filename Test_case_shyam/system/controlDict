@@ -14,7 +14,7 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-application     interFoam;
+application     simpleFoam;
 
 startFrom       startTime;
 
@@ -24,9 +24,9 @@ stopAt          endTime;
 
 endTime         0.05;
 
-deltaT          0.001;
+deltaT          0.00001;
 
-writeControl    adjustable;
+writeControl    adjustableRunTime;//timeStep;
 
 writeInterval   0.001;
 
@@ -36,26 +36,12 @@ writeFormat     ascii;
 
 writePrecision  6;
 
-writeCompression off;
+writeCompression compressed;
 
 timeFormat      general;
 
 timePrecision   6;
 
-runTimeModifiable yes;
-
-adjustTimeStep  yes;
-
-maxCo           1;
-
-maxAlphaCo      1;
-
-maxDeltaT       1;
-
-functions
-{
-    #sinclude   "sampling"
-}
-
+runTimeModifiable true;
 
 // ************************************************************************* //
