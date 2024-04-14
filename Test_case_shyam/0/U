@@ -30,38 +30,37 @@ boundaryField
     bottom
     {
         type        fixedValue;
-        value       uniform (0 1 0);
+        value       uniform (0 25 0);
     }
 
     left
     {
-        type            fixedValue;
-        value           uniform (0 0 0);
+        type            noSlip;
     }
 
     right
     {
-         type            fixedValue;
-        value           uniform (0 0 0);
+         type             noSlip;
+        //value           uniform (0 0 0);
         
     }
 
     front
     {
-        type        fixedValue;
-        value       uniform (0 0 0);
+        type         noSlip;
+       // value       uniform (0 0 0);
     }
 
     back
     {
-        type        fixedValue;
+        type         noSlip;
         value       uniform (0 0 0);
     }
 
     cylinder
     {
-        type        fixedValue;
-        value       uniform (0 0 0);
+        type         noSlip;
+        //value       uniform (0 0 0);
     }
 
 /*

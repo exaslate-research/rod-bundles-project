@@ -63,11 +63,11 @@ castellatedMeshControls
     {
     }
 
-    //locationInMesh (0.03175 0.500 0.03801);
+    locationInMesh (0.03175 0.1 0.03175);
     //locationInMesh (31.75 20 38.01);
-    locationInMesh (1e-5 1e-5 1e-5);    
+    //locationInMesh (1e-5 1e-5 1e-5);    
     //locationsOutsideMesh ((0.03175 0.1 0.03175));
-    locationsOutsideMesh ((0.01 0.01 0.01));
+    locationsOutsideMesh ((1e-5 1e-5 1e-5));
     //locationsOutsideMesh ((31.75 40 31.75));
     allowFreeStandingZoneFaces false;
     //useLeakClosure true;
@@ -180,7 +180,7 @@ addLayersControls
     // Smooth layer thickness over surface patches
     nSmoothThickness 10;
 
-    // Stop layer growth on highly warped cells
+    // Stop layer growth on highly warped cells   
     maxFaceThicknessRatio 0.5;
 
     // Reduce layer growth where ratio thickness to medial
