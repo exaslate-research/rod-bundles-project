@@ -1,4 +1,4 @@
 * single_rod_simpleFoam
-  * single rod test case using simpleFoam. Shyam is currently working on this.
+  * single rod test case using simpleFoam. Shyam completed this case. Further refinement on the mesh needs to be done.
 * single_rod_pisoFoam
   * single rod test case using pisoFoam.  Shyam worked on this in the past but now working on simpleFoam and will get back to this soon.
