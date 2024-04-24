@@ -16,8 +16,8 @@ FoamFile
 
 // Which of the steps to run
 castellatedMesh true;
-snap            true;
-addLayers       false;
+snap            true;//false;	//true;
+addLayers      false;	//true;// false;
 
 
 // Geometry. Definition of all surfaces. All surfaces are of class
@@ -41,7 +41,7 @@ castellatedMeshControls
 
     maxLocalCells 100000;
     maxGlobalCells 2000000;
-    minRefinementCells 10;
+    minRefinementCells 0;	//10;
     maxLoadUnbalance 0.10;
     nCellsBetweenLevels 3; // 2
     
@@ -50,10 +50,11 @@ castellatedMeshControls
         cylinder 
         {
            level (1 1);
+          // level (2 3);
 //            level (3 3);
 //	      level (5 5);            
 //	      level (3 4);
- //    level (4 4);
+     //level (4 4);
 //	      level (5 6);
             patchInfo { type wall; }
         }
@@ -76,7 +77,7 @@ castellatedMeshControls
     (
         {
             file "cylinder.eMesh";
-            level 2;
+            level 1;	//level 2;//
             //level 6;
         }
     );
@@ -110,17 +111,17 @@ snapControls
 
         //- Number of feature edge snapping iterations.
         //  Leave out altogether to disable.
-        nFeatureSnapIter 5;//10; // 5
+        nFeatureSnapIter 10; // 5
 
         //- Detect (geometric only) features by sampling the surface
         //  (default=false).
         implicitFeatureSnap false;
 
         //- Use castellatedMeshControls::features (default = true)
-        explicitFeatureSnap false;
+        explicitFeatureSnap true;	//false;
 
         //- Detect points on multiple surfaces (only for explicitFeatureSnap)
-        multiRegionFeatureSnap false;      
+        multiRegionFeatureSnap true;	//false;      
 }
 
 
@@ -138,7 +139,8 @@ addLayersControls
     }
 
     // Expansion factor for layer mesh
-    expansionRatio 1.0;
+   // expansionRatio 1.0;
+   expansionRatio 1.2;
 
     // Wanted thickness of final added cell layer. If multiple layers
     // is the thickness of the layer furthest away from the wall.
