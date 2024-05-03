@@ -33,6 +33,12 @@ geometry
         type closedTriSurfaceMesh;
         name cylinder;
     }
+    
+    Boundary0.obj
+    {
+        type closedTriSurfaceMesh;
+        name Boundary0;
+    }
 };
 
 // Settings for the castellatedMesh generation.
@@ -58,6 +64,11 @@ castellatedMeshControls
 //	      level (5 6);
             patchInfo { type wall; }
         }
+        Boundary0
+    	{
+    		level (2 2);	//((0.001 1));
+    		patchInfo { type wall; }
+    	}
        /* left
         {
         level (1 1);
@@ -72,6 +83,11 @@ castellatedMeshControls
     
     refinementRegions
     {
+    	/*Boundary0
+    	{
+    		mode inside;
+    		levels ((1 2));	//((0.001 1));
+    	}*/
     }
 
     locationInMesh (0.03175 0.1 0.03175);
@@ -80,7 +96,7 @@ castellatedMeshControls
     //locationsOutsideMesh ((0.03175 0.1 0.03175));
     locationsOutsideMesh ((1e-5 1e-5 1e-5));
     //locationsOutsideMesh ((31.75 40 31.75));
-    allowFreeStandingZoneFaces false;
+    allowFreeStandingZoneFaces false;//true;//false;
     //useLeakClosure true;
     
     features
