@@ -38,6 +38,14 @@ solvers
         relTol          0;
     }
 
+ 	"(U|k|epsilon|omega|f|v2)"
+    {
+        solver          smoothSolver;
+        smoother        symGaussSeidel;
+        tolerance       1e-05;
+        relTol          0.1;
+    }
+
     //p_rgh
     p
     {
