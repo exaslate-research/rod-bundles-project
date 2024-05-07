@@ -9,36 +9,43 @@ FoamFile
 {
     version     2.0;
     format      ascii;
-    class       dictionary;
-    object      turbulenceProperties;
+    class       volScalarField;
+    object      nuTilda;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-//simulationType  laminar;
-simulationType      RAS;
+dimensions      [0 2 -1 0 0 0 0];
 
-RAS
+internalField   uniform 0;
+
+boundaryField
 {
-    RASModel        kEpsilon;
-
-    turbulence      on;
-
-    printCoeffs     on;
-    
-    kEpsilonCoeffs
+    inlet
     {
-        Cmu         0.09;
-        C1          1.44;
-        C2          1.92;
-        sigmaEps    1.44; //Original value:1.44//1.11
-        // See:
-        // D.M. Hargreaves and N.G. Wright
-        // "On the use of the k-Epsilon model in commercial CFD software
-        // to model the neutral atmospheric boundary layer",
-        // J. of wind engineering and industrial aerodymanics,
-        // 95(2007) 355-269
+        type            fixedValue;
+        value           uniform 0;
     }
-    
+
+    outlet
+    {
+        type            zeroGradient;
+    }
+
+    upperWall
+    {
+        type            zeroGradient;
+    }
+
+    lowerWall
+    {
+        type            zeroGradient;
+    }
+
+    frontAndBack
+    {
+        type            empty;
+    }
 }
+
 
 // ************************************************************************* //
