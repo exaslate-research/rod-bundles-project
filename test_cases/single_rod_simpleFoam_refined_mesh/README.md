@@ -1,3 +1,5 @@
+* Single rod case with simple foam and changes made to boundary walls to generate refined mesh but the refinement around the rod is not touched.
+
 ```sh
 foamCleanTutorials
 blockMesh
