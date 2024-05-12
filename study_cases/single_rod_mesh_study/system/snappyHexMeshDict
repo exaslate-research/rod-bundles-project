@@ -16,8 +16,8 @@ FoamFile
 
 // Which of the steps to run
 castellatedMesh true;
-snap            true;
-addLayers       false;
+snap            true;//true;
+addLayers       false;// false;
 
 
 // Geometry. Definition of all surfaces. All surfaces are of class
@@ -33,6 +33,43 @@ geometry
         type closedTriSurfaceMesh;
         name cylinder;
     }
+    
+    round
+   {
+    type            searchableCylinder;
+    point1          (0 0 0);
+    point2          (0 0.1 0);
+    radius          0.006;
+   }
+   
+    box_blockmesh1
+    {
+    	type searchableBox;
+    	min (-0.03175 0 0.0265);
+    	max (0.03175 0.1 0.03175); 
+    }
+    
+    box_blockmesh2
+    {
+    	type searchableBox;
+    	min (-0.03175 0 -0.03175);
+    	max (0.03175 0.1 -0.0265);  
+    }
+   
+    box_blockmesh3
+    {
+    	type searchableBox;
+    	min (0.0265 0 -0.03175);
+    	max (0.03175 0.1 0.03175);  
+    } 
+    
+    box_blockmesh4
+    {
+    	type searchableBox;
+    	min (-0.03175 0 -0.03175);
+    	max (-0.0265 0.1 0.03175);  
+    }
+   
 };
 
 // Settings for the castellatedMesh generation.
@@ -49,8 +86,9 @@ castellatedMeshControls
     {
         cylinder 
         {
-           level (1 1);
-//            level (3 3);
+           //level (1 1);
+          level (2 2);
+     //      level (3 3);
 //	      level (5 5);            
 //	      level (3 4);
      //level (4 4);
@@ -59,16 +97,42 @@ castellatedMeshControls
         }
     }
     
-    refinementRegions
-    {
+    	refinementRegions
+    	{
+    	round
+	{
+	   mode inside;		//2 million 
+	   levels ((2 2));
+	} 
+	box_blockmesh1
+	{
+	   mode inside;		//2 million 
+	   levels ((2 2));
+	   //((3 3)); //11 million    //((1 1)) // OK	((5 5)) //Not worked (entire model is visible);
+	} 
+	
+	box_blockmesh2
+	{
+	   mode inside;		//2 million 
+	   levels ((2 2));
+	} 
+    	
+    	box_blockmesh3
+	{
+	   mode inside;		//2 million 
+	   levels ((2 2));
+	} 
+	
+	box_blockmesh4
+	{
+	   mode inside;		//2 million 
+	   levels ((2 2));
+	}
     }
-
-    locationInMesh (0.03174 0.99 0.03174);
-    //locationInMesh (31.75 20 38.01);
-    //locationInMesh (1e-5 1e-5 1e-5);    
-    //locationsOutsideMesh ((0.03175 0.1 0.03175));
-    locationsOutsideMesh ((1e-5 1e-5 1e-5));
-    //locationsOutsideMesh ((31.75 40 31.75));
+    
+    
+    locationInMesh (0.03175 0 0.03175);
+   // locationsOutsideMesh ((1e-5 1e-5 1e-5));
     allowFreeStandingZoneFaces false;
     //useLeakClosure true;
     
@@ -78,11 +142,11 @@ castellatedMeshControls
             file "cylinder.eMesh";
             level 2;
             //level 6;
-        }
+        } 
     );
 
-    // Resolve sharp angles
-    resolveFeatureAngle 30;
+
+    resolveFeatureAngle 60;
     
 }
 
@@ -90,37 +154,22 @@ castellatedMeshControls
 // Settings for the snapping.
 snapControls
 {
-    //- Number of patch smoothing iterations before finding correspondence
-    //  to surface
+   
     nSmoothPatch 3;
-
-    //- Relative distance for points to be attracted by surface feature point
-    //  or edge. True distance is this factor times local
-    //  maximum edge length.
+    
     tolerance 2.0;	//1.0;
 
-    //- Number of mesh displacement relaxation iterations.
     nSolveIter 30;	//10;
 
-    //- Maximum number of snapping relaxation iterations. Should stop
-    //  before upon reaching a correct mesh.
     nRelaxIter 5; // 3
 
-    // Feature snapping
-
-        //- Number of feature edge snapping iterations.
-        //  Leave out altogether to disable.
         nFeatureSnapIter 5;//10; // 5
 
-        //- Detect (geometric only) features by sampling the surface
-        //  (default=false).
-        implicitFeatureSnap false;
+        implicitFeatureSnap true;//false;
 
-        //- Use castellatedMeshControls::features (default = true)
-        explicitFeatureSnap false;
+        explicitFeatureSnap true; //false;
 
-        //- Detect points on multiple surfaces (only for explicitFeatureSnap)
-        multiRegionFeatureSnap false;      
+        multiRegionFeatureSnap true;//false;      
 }
 
 
@@ -128,78 +177,45 @@ snapControls
 // Settings for the layer addition.
 addLayersControls
 {
-    // Are the thickness parameters below relative to the undistorted
-    // size of the refined cell outside layer (true) or absolute sizes (false).
+    
     relativeSizes true;
 
-    // Per final patch (so not geometry!) the layer information
     layers
     {
+    cylinder
+    { 
+      nSurfaceLayers 5;
+    }
     }
 
-    // Expansion factor for layer mesh
-    expansionRatio 1.0;
+    expansionRatio 1.2;// 1.0;
 
-    // Wanted thickness of final added cell layer. If multiple layers
-    // is the thickness of the layer furthest away from the wall.
-    // Relative to undistorted size of cell outside layer.
-    // See relativeSizes parameter.
-    finalLayerThickness 0.3;
+    finalLayerThickness 0.5;
 
-    // Minimum thickness of cell layer. If for any reason layer
-    // cannot be above minThickness do not add layer.
-    // Relative to undistorted size of cell outside layer.
     minThickness 0.1;//1e-3;	//0.1;
 
-    // If points get not extruded do nGrow layers of connected faces that are
-    // also not grown. This helps convergence of the layer addition process
-    // close to features.
-    // Note: changed(corrected) w.r.t 1.7.x! (didn't do anything in 1.7.x)
     nGrow 0;
 
-    // Advanced settings
+    featureAngle 120;//60;
 
-    // When not to extrude surface. 0 is flat surface, 90 is when two faces
-    // are perpendicular
-    featureAngle 60;
-
-    // At non-patched sides allow mesh to slip if extrusion direction makes
-    // angle larger than slipFeatureAngle.
     slipFeatureAngle 30;
 
-    // Maximum number of snapping relaxation iterations. Should stop
-    // before upon reaching a correct mesh.
     nRelaxIter 3;
 
-    // Number of smoothing iterations of surface normals
     nSmoothSurfaceNormals 1;
 
-    // Number of smoothing iterations of interior mesh movement direction
     nSmoothNormals 3;
 
-    // Smooth layer thickness over surface patches
     nSmoothThickness 10;
 
-    // Stop layer growth on highly warped cells   
     maxFaceThicknessRatio 0.5;
 
-    // Reduce layer growth where ratio thickness to medial
-    // distance is large
     maxThicknessToMedialRatio 0.3;
 
-    // Angle used to pick up medial axis points
-    // Note: changed(corrected) w.r.t 1.7.x! 90 degrees corresponds to 130
-    // in 1.7.x.
     minMedialAxisAngle 90;
 
-
-    // Create buffer region for new layer terminations
     nBufferCellsNoExtrude 0;
 
-
-    // Overall max number of layer addition iterations. The mesher will exit
-    // if it reaches this number of iterations; possibly with an illegal
-    // mesh.
     nLayerIter 50;
 }
 
