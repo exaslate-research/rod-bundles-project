@@ -21,39 +21,39 @@ internalField   uniform 0;
 boundaryField
 {    
 
-   top
-    {
+   auto0    
+   {
         type            fixedValue;
         value       	uniform 0;
         //type		zeroGradient;
     }
 
-    bottom
+    auto1
     {
         type            zeroGradient;
     }
 
-    left
+    auto2
     {
         type            zeroGradient;
     }
 
-    right
+    auto3
     {
         type        	zeroGradient;
     }
 
-    front
+    auto4
     {
         type            zeroGradient;
     }
 
-    back
+    auto5
     {
         type            zeroGradient;
     }
 
-    cylinder
+    auto6
     {
         type            zeroGradient;
     }

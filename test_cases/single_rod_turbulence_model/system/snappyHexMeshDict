@@ -17,7 +17,7 @@ FoamFile
 // Which of the steps to run
 castellatedMesh true;
 snap            true;//false;	//true;
-addLayers       true;	//true;// false;
+addLayers       false;	//true;// false;
 
 
 // Geometry. Definition of all surfaces. All surfaces are of class
@@ -33,6 +33,15 @@ geometry
         type closedTriSurfaceMesh;
         name cylinder;
     }
+    
+    /*   round
+   {
+    type            searchableCylinder;
+    point1          (0 0 0);
+    point2          (0 0.1 0);
+    radius          0.008;
+   }
+   */
     
     box_blockmesh1
     {
@@ -111,6 +120,12 @@ castellatedMeshControls
     
     refinementRegions
     {
+   	/*round
+	{
+	   mode inside;		//2 million 
+	   levels ((2 2));
+	} 
+    */
     	box_blockmesh1
 	{
 	   mode inside;		//2 million 
@@ -162,7 +177,7 @@ castellatedMeshControls
     );
 
     // Resolve sharp angles
-    resolveFeatureAngle 30;
+    resolveFeatureAngle 60;
     
 }
 

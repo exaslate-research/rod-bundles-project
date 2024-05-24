@@ -22,7 +22,7 @@ internalField   uniform (0 1 0);
 boundaryField
 {
 
-    top
+    auto0
     {
     	//type            pressureInletOutletVelocity;
         //value           $internalField;
@@ -31,37 +31,37 @@ boundaryField
         type        zeroGradient;
     }
 
-    bottom
+    auto1
     {
         type        fixedValue;
         value       uniform (0 1 0);
     }
 
-    left
+    auto2
     {
         type            noSlip;
     }
 
-    right
+    auto3
     {
          type             noSlip;
         //value           uniform (0 0 0);
         
     }
 
-    front
+    auto4
     {
         type         	noSlip;
        // value       uniform (0 0 0);
     }
 
-    back
+    auto5
     {
         type         noSlip;
         //value       uniform (0 0 0);
     }
 
-    cylinder
+    auto6
     {
         type         noSlip;
         //value       uniform (0 0 0);

@@ -14,7 +14,7 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-application     simpleFoam;//interFoam;
+application     pisoFoam;//interFoam;
 
 startFrom       startTime;
 
@@ -44,4 +44,12 @@ timePrecision   6;
 
 runTimeModifiable true;
 
+/*
+functions
+{
+   
+    #include "FOs/FOyPlus"
+  
+}
+*/
 // ************************************************************************* //

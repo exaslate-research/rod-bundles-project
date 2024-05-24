@@ -72,7 +72,7 @@ SIMPLE
     {
         p              1e-4;// 1e-2;
         U               1e-6;
-        "(k|epsilon)" 1e-4;
+        //"(k|epsilon)" 1e-4;
     }
 }
 relaxationFactors
