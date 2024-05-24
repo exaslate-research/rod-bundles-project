@@ -10,46 +10,33 @@ FoamFile
     version     2.0;
     format      ascii;
     class       dictionary;
-    object      controlDict;
+    object      transportProperties;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-application     pisoFoam;//interFoam;
+/*
+phases          (water air);
 
-startFrom       startTime;
-
-startTime       0;
-
-stopAt          endTime;
-
-endTime         0.05;
-
-deltaT          0.0001;
-
-writeControl    adjustableRunTime;//timestep;
-
-writeInterval   0.001;
-
-purgeWrite      0;
-
-writeFormat     ascii;
-
-writePrecision  6;
-
-writeCompression off;//compressed;
-
-timeFormat      general;
-
-timePrecision   6;
-
-runTimeModifiable true;
-
-
-functions
+water
 {
-   
-    #include "FOs/FOyPlus"
-  
+    transportModel  Newtonian;
+    nu              1e-06;
+    rho             1000;
 }
+
+air
+{
+    transportModel  Newtonian;
+    nu              1.48e-05;
+    rho             1;
+}
+
+sigma            0.07;
+*/
+
+transportModel  Newtonian;
+
+nu              1e-6;	//0.01;
+
 
 // ************************************************************************* //

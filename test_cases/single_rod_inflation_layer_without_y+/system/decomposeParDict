@@ -10,46 +10,18 @@ FoamFile
     version     2.0;
     format      ascii;
     class       dictionary;
-    object      controlDict;
+    object      decomposeParDict;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-application     pisoFoam;//interFoam;
+numberOfSubdomains 8;
 
-startFrom       startTime;
+method          simple;
 
-startTime       0;
-
-stopAt          endTime;
-
-endTime         0.05;
-
-deltaT          0.0001;
-
-writeControl    adjustableRunTime;//timestep;
-
-writeInterval   0.001;
-
-purgeWrite      0;
-
-writeFormat     ascii;
-
-writePrecision  6;
-
-writeCompression off;//compressed;
-
-timeFormat      general;
-
-timePrecision   6;
-
-runTimeModifiable true;
-
-
-functions
+coeffs
 {
-   
-    #include "FOs/FOyPlus"
-  
+    n           (1 8 1);
 }
+
 
 // ************************************************************************* //
