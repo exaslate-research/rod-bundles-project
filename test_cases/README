@@ -1,0 +1,22 @@
+* single_rod_simpleFoam
+  * single rod test case using simpleFoam. Shyam completed this case. Further refinement on the mesh needs to be done.
+  
+* single_rod_pisoFoam
+  * single rod test case using pisoFoam.  Shyam worked on this and the case is complete. Similar to simpleFoam, further refinement is required.
+  
+* single_rod_simpleFoam_fine_mesh
+  * single rod case with appropriate mesh. Velocity profile in the walls are abnormal. Needs refinement on the wall boundaries
+  
+ * single_rod_simpleFoam_refined_mesh
+  * wall boundary mesh was refined using simplegrading in blockmesh. it is not recommended to obtain appropriate refining. snappyhexmesh is suggested for refining the mesh
+  
+ * single_rod_simpleFoam_boundary_mesh
+  * refining was done on the wall booundaries but not around the cylinders. need to add layers or create refinement region around the cylinder for better mesh.
+  
+ * single_rod_turbulence_model
+  * K-Epsilon turbulence model was used to predict the turbulence as the flow lies in the turbulence regime. solution is obtained but there are gaps in the velociity profile which needs to be taken care of checking the mesh.
+  
+  
+  
+  
+ 	Shyam is currently working on preparing the mesh for the turbulence case to obtain velocity profiles without any gaps in it and documenting the learning process..
