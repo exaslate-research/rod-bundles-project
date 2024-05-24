@@ -5,51 +5,38 @@
 |   \\  /    A nd           | Website:  www.openfoam.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
-FoamFile
+
+solverInfo1
 {
-    version     2.0;
-    format      ascii;
-    class       dictionary;
-    object      controlDict;
+    // Mandatory entries
+    type            solverInfo;
+    libs            (utilityFunctionObjects);
+    fields
+    (
+        k
+        epsilon
+        p
+        U
+    )
+
+    // Optional entries
+    writeResidualFields    true;
+
+    // Optional (inherited) entries
+    writePrecision   16;
+    writeToFile      true;
+    useUserTime      true;
+
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       0;
+    timeEnd         1000;
+    executeControl  timeStep;
+    executeInterval 1;
+    writeControl    writeTime;
+    writeInterval   -1;
 }
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-application     pisoFoam;//interFoam;
-
-startFrom       startTime;
-
-startTime       0;
-
-stopAt          endTime;
-
-endTime         0.05;
-
-deltaT          0.0001;
-
-writeControl    adjustableRunTime;//timestep;
-
-writeInterval   0.001;
-
-purgeWrite      0;
-
-writeFormat     ascii;
-
-writePrecision  6;
-
-writeCompression off;//compressed;
-
-timeFormat      general;
-
-timePrecision   6;
-
-runTimeModifiable true;
-
-
-functions
-{
-   
-    #include "FOs/FOyPlus"
-  
-}
 
 // ************************************************************************* //
