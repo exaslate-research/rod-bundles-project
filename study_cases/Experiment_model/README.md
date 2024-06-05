@@ -7,8 +7,6 @@ blockMesh
 surfaceFeatureExtract
 snappyHexMesh -overwrite
 touch a.foam
-autoPatch 60 -overwrite 
-createPatch -dict system/createPatchDict_clean -overwrite
 decomposePar
 mpirun -np 8 simpleFoam -parallel
 reconstructPar

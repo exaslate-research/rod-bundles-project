@@ -43,7 +43,7 @@ patches
    }
 
    {
-   	name Wall;
+   	name wall;
    	
    	patchInfo { type wall; }
    	
