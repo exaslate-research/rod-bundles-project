@@ -16,52 +16,52 @@ FoamFile
 
 dimensions      [0 1 -1 0 0 0 0];
 
-internalField   uniform (0 1 0);
 //internalField   uniform (0 0 0);
+internalField   uniform (0 1 0);
 
 boundaryField
 {
 
-    auto0
+    top
     {
-    	//type            pressureInletOutletVelocity;
-        //value           $internalField;
-    	//type        fixedValue;
-        //value       $internalField;//uniform (0 0 0);
-        type        zeroGradient;
+        //type        zeroGradient;
+        type            inletOutlet;
+        inletValue      uniform (0 0 0);
+        value           $internalField;		//uniform (0 0 0);
+                
     }
 
-    auto1
+    bottom
     {
         type        fixedValue;
         value       uniform (0 1 0);
     }
 
-    auto2
+    left
     {
         type            noSlip;
     }
 
-    auto3
+    right
     {
          type             noSlip;
         //value           uniform (0 0 0);
         
     }
 
-    auto4
+    front
     {
-        type         	noSlip;
+        type         noSlip;
        // value       uniform (0 0 0);
     }
 
-    auto5
+    back
     {
         type         noSlip;
-        //value       uniform (0 0 0);
+       // value       uniform (0 0 0);
     }
 
-    auto6
+    cylinder
     {
         type         noSlip;
         //value       uniform (0 0 0);

@@ -14,46 +14,45 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 2 -2 0 0 0 0];//[0 2 -2 0 0 0 0];
+dimensions      [0 2 -2 0 0 0 0];
 
 internalField   uniform 0;
 
 boundaryField
 {    
 
-   auto0    
-   {
+   top
+    {
         type            fixedValue;
-        value       	uniform 0;
-        //type		zeroGradient;
+        value       uniform 0;
     }
 
-    auto1
+    bottom
     {
         type            zeroGradient;
     }
 
-    auto2
+    left
     {
         type            zeroGradient;
     }
 
-    auto3
+    right
     {
-        type        	zeroGradient;
+        type        zeroGradient;
     }
 
-    auto4
-    {
-        type            zeroGradient;
-    }
-
-    auto5
+    front
     {
         type            zeroGradient;
     }
 
-    auto6
+    back
+    {
+        type            zeroGradient;
+    }
+
+    cylinder
     {
         type            zeroGradient;
     }
