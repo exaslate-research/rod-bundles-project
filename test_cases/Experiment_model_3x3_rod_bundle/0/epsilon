@@ -16,7 +16,7 @@ FoamFile
 
 dimensions      [0 2 -3 0 0 0 0];
 
-internalField   uniform 14.855;
+internalField   uniform 0.000974;
 
 boundaryField
 {
@@ -33,20 +33,20 @@ boundaryField
     bottom
     {
         type        fixedValue;
-        value       uniform 0.375;
+        value      $internalField;	
     }
 
     left
     {
      	type            kqRWallFunction;
-        value           uniform 14.855;
+        value      $internalField;	
       //type            noSlip;
     }
 
     right
     {
          type            kqRWallFunction;
-        value           uniform 14.855;
+        value      $internalField;	
         // type             noSlip;
         //value           uniform (0 0 0);
         
@@ -55,7 +55,7 @@ boundaryField
     front
     {
          type            kqRWallFunction;
-        value           uniform 14.855;
+        value      $internalField;	
         //type         	noSlip;
        // value       uniform (0 0 0);
     }
@@ -63,7 +63,7 @@ boundaryField
     back
     {
          type            kqRWallFunction;
-        value           uniform 14.855;
+        value      $internalField;	
         //type         noSlip;
         //value       uniform (0 0 0);
     }
@@ -71,7 +71,7 @@ boundaryField
     cylinder
     {
         type            kqRWallFunction;
-        value           uniform 14.855;
+        value      $internalField;	
          //type         noSlip;
         //value       uniform (0 0 0);
     }
