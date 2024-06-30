@@ -1,4 +1,5 @@
-* Experimental model case simulated using simpleFoam solver. This case was made to obtain the y+ values of the boundary layer mesh to create a more appropriate mesh for the case
+* Experimental model 3x3 case simulated using simpleFoam solver. This case was simulate the outcomes for a initial case
+
 
 
 ```sh

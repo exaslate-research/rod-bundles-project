@@ -1,0 +1,50 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # Run from this directory
+
+# Source tutorial run functions
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+# Make dummy 0 directory
+# mkdir 0
+
+runApplication foamCleanTutorials
+runApplication blockMesh
+runApplication surfaceFeatureExtract
+#cp system/decomposeParDict.hierarchical system/decomposeParDict
+runApplication decomposePar
+
+runParallel snappyHexMesh -overwrite
+#runParallel snappyHexMesh
+
+#find . -type f -iname "*level*" -exec rm {} \;
+
+#ls -d processor* | xargs -I {} cp -r 0.org ./{}/0 $1
+
+#runParallel topoSet
+#runParallel `getApplication`
+
+#runApplication reconstructParMesh -constant 
+#runApplication reconstructParMesh -mergeTol 1e-06 -latestTime
+#runApplication reconstructParMesh -mergeTol 1e-06
+
+#runApplication autoPatch 45 -overwrite
+
+#runApplication reconstructPar
+runApplication touch a.foam
+
+#Check non-orthogonality, aspect ratio, skewness and check no. of hexahedra, prism, and polyhedra
+runApplication checkMesh -latestTime	
+
+#cp -a 0.org/. 0/
+
+
+#```// TO CHECK THE snappyHexMesh (dont use overwrite)
+#foamCleanTutorials
+#blockMesh
+#surfaceFeatureExtract
+
+#decomposePar
+#foamJob -parallel -screen snappyHexMesh -overwrite
+#reconstructParMesh -latestTime -mergeTol 1E-06 -noZero
+#touch a.foam
+#```
