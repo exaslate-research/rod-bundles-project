@@ -231,7 +231,7 @@ snapControls
 addLayersControls
 {
     
-    relativeSizes true;
+    relativeSizes true; 		//true;
 
     layers
     {
@@ -264,7 +264,7 @@ addLayersControls
 
     expansionRatio 1.2;// 1.0;
 
-    finalLayerThickness 0.8;
+    finalLayerThickness 0.5;
 
     minThickness 0.1;//1e-3;	//0.1;
 

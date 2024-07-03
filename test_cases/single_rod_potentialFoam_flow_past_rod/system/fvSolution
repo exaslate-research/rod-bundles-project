@@ -23,6 +23,11 @@ solvers
         relTol          0.1;		//0.1;
         smoother        GaussSeidel;
     }
+    
+    Phi
+    {
+        $p;
+    }
 
     "(U|k|epsilon|omega|f|v2)"
     {

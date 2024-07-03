@@ -26,13 +26,16 @@ gradSchemes
 
 divSchemes
 {
+    turbulence      bounded Gauss upwind;
     div(rhoPhi,U)   Gauss linearUpwind grad(U);//Upwind;//
     div(phi,alpha)  Gauss vanLeer;//Upwind;//
     div(phirb,alpha) Gauss linear;//Upwind;//
     div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear;//Upwind;
     div(phi,U)      Gauss linear;
-
+    div(phi,epsilon)  $turbulence;
     div((nuEff*dev2(T(grad(U))))) Gauss linear;    
+    
+    div(phi,k)      $turbulence;
 }
 
 laplacianSchemes

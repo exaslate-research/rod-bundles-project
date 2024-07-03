@@ -14,7 +14,7 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-application     simpleFoam;//interFoam;
+application     pisoFoam;//interFoam;
 
 startFrom       startTime;
 
@@ -22,13 +22,13 @@ startTime       0;
 
 stopAt          endTime;
 
-endTime         0.05;
+endTime         500;		//0.05;
 
-deltaT          0.0001;
+deltaT          1;		//0.0001;
 
-writeControl    adjustableRunTime;//timestep;
+writeControl    timeStep;	//adjustableRunTime;//timestep;
 
-writeInterval   0.001;
+writeInterval   60;		//0.001;
 
 purgeWrite      0;
 
@@ -44,4 +44,12 @@ timePrecision   6;
 
 runTimeModifiable true;
 
+/*
+functions
+{
+   
+    #include "FOs/FOyPlus"
+  
+}
+*/
 // ************************************************************************* //
