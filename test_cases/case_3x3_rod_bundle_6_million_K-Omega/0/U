@@ -17,17 +17,17 @@ FoamFile
 dimensions      [0 1 -1 0 0 0 0];
 
 //internalField   uniform (0 0 0);
-internalField   uniform (0 1 0);
+internalField   uniform (0 0 0);
 
 boundaryField
 {
 
     top
     {
-        //type        zeroGradient;
-        type            inletOutlet;
+        type        zeroGradient;
+       /* type            inletOutlet;
         inletValue      uniform (0 0 0);
-        value           $internalField;		//uniform (0 0 0);
+        value           $internalField;		//uniform (0 0 0);*/
                 
     }
 

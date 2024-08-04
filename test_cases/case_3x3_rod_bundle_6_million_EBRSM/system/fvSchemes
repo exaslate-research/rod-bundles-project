@@ -21,20 +21,27 @@ ddtSchemes
 
 gradSchemes
 {
-    default         Gauss linear;
+    default         leastSquares;	//Gauss linear;
+    grad(U)         cellLimited<Venkatakrishnan> Gauss linear 1; //cellLimited Gauss linear 1;
 }
 
 divSchemes
 {
     default         none;
 
-    div(phi,U)      bounded Gauss linearUpwind grad(U);
+    div(phi,U)      Gauss vanLeerV;
+    //bounded Gauss linearUpwind grad(U);
 
-    turbulence      bounded Gauss limitedLinear 1;
+    turbulence      Gauss vanLeer;	//bounded Gauss limitedLinear 1;
     div(phi,k)      $turbulence;
+    div(phi,R)      $turbulence;
+    div(phi,f)      $turbulence;
+    div(R) 	    Gauss linear;	//Gauss upwind;   
+    //Gauss vanLeer; (ERROR: attempt to read beyond EOF)
     div(phi,epsilon) $turbulence;
+    div(f) 	    $turbulence; 	//Gauss upwind;  	 //Gauss linear;    
     div(phi,omega)  $turbulence;
-
+    div((nu*dev2(T(grad(U)))))  Gauss linear;
     div(nonlinearStress) Gauss linear;
     div((nuEff*dev2(T(grad(U))))) Gauss linear;
 }

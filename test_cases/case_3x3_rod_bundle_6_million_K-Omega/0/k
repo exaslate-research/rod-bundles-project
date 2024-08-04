@@ -23,14 +23,11 @@ boundaryField
 
     top
     {
-    	//type            pressureInletOutletVelocity;
-        //value           $internalField;
-    	//type        fixedValue;
         //value       $internalField;//uniform (0 0 0);
-//        type        zeroGradient;
-        type            inletOutlet;
+        type        zeroGradient;
+      /*  type            inletOutlet;
         inletValue      $internalField;
-        value           $internalField;           
+        value           $internalField;  */         
     }
 
     bottom

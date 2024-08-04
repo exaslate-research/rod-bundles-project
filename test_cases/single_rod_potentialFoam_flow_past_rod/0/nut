@@ -23,26 +23,26 @@ boundaryField
 
     top
     {
-        type            calculated;
+        type            nutkWallFunction;
         value           uniform 0; 
     }
 
     bottom
     {
-        type            calculated;
+        type            nutkWallFunction;
         value           uniform 0; 
     }
 
     left
     {
-     	type            nutkWallFunction;
+     	type            calculated;
         value           uniform 0;
       //type            noSlip;
     }
 
     right
     {
-         type            nutkWallFunction;
+         type            calculated;
         value           uniform 0;
         // type             noSlip;
         //value           uniform (0 0 0);

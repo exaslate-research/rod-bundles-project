@@ -23,8 +23,12 @@ RAS
     turbulence      on;
 
     printCoeffs     on;
+    
+    EBRSMCoeffs
+    {
+        Cmu         0.07;	//0.09
+    }
 }
-
 /*
 simulationType  RAS;
 

@@ -13,22 +13,22 @@ FoamFile
     object      decomposeParDict;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-/*
-numberOfSubdomains 4;
+
+numberOfSubdomains 8;
 
 method          simple;
 
 coeffs
 {
-    n           (1 4 1);
+    n           (1 8 1);
 }
-*/
 
+/*
 numberOfSubdomains 32;	//32;
 
 method		scotch;
 
-
+*/
 //We highly recommend you to use this method. The only input that requires from the user is the number of subdomains/cores. This method attempts to minimize the number of processor boundaries.
 
 // $> mpirun –np <NPROCS> <application/utility> –parallel

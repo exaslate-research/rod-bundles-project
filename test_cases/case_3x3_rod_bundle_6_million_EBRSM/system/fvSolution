@@ -19,39 +19,55 @@ solvers
     p
     {
         solver          GAMG;
-        tolerance       1e-06;
+        tolerance       1e-8;		//1e-06;
         relTol          0.1;		//0.1;
         smoother        GaussSeidel;
     }
 
-    "(U|k|epsilon|omega|f|v2)"
+    Phi
+    {
+        $p;
+    }
+    
+    "(U|k|epsilon|omega|f|R|v2)"
     {
         solver          smoothSolver;
         smoother        symGaussSeidel;
-        tolerance       1e-05;
+        tolerance       1e-8;		//1e-05;
         relTol          0.1;		//0.1;
     }
 }
 
+potentialFlow
+{
+    nNonOrthogonalCorrectors 50;	//100; //10
+}
+
 SIMPLE
 {
-    nNonOrthogonalCorrectors 2;
+    nNonOrthogonalCorrectors 5;		//2;
     consistent      yes;
 
     residualControl
     {
-        p               1e-5;
-        U               1e-5;
-        "(k|epsilon|omega|f|v2)" 1e-5;
+        p               		1e-8;	//1e-5;
+        U               		1e-8;	//1e-5;
+        "(k|epsilon|omega|f|R|v2)" 	1E-8;	//1e-5;
     }
 }
 
 relaxationFactors
 {
+    fields
+    {
+        p           0.3;	//0.7;
+    	R           0.3;
+    }
+
     equations
     {
-        U               0.9; // 0.9 is more stable but 0.95 more convergent
-        ".*"            0.9; // 0.9 is more stable but 0.95 more convergent
+        U               0.5; // 0.9 is more stable but 0.95 more convergent
+        ".*"            0.5; // 0.9 is more stable but 0.95 more convergent
     }
 }
 

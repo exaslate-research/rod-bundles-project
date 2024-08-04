@@ -16,19 +16,19 @@ FoamFile
 
 application     pisoFoam;//interFoam;
 
-startFrom       startTime;
+startFrom       latestTime;	//startTime;
 
 startTime       0;
 
 stopAt          endTime;
 
-endTime         500;		//0.05;
+endTime         2000;		//0.05;
 
 deltaT          1;		//0.0001;
 
 writeControl    timeStep;	//adjustableRunTime;//timestep;
 
-writeInterval   60;		//0.001;
+writeInterval   10;		//0.001;
 
 purgeWrite      0;
 

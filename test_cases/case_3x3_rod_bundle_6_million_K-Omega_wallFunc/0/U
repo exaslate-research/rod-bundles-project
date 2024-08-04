@@ -1,0 +1,121 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2306                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+//internalField   uniform (0 0 0);
+internalField   uniform (0 0 0);
+
+boundaryField
+{
+
+    top
+    {
+        type        zeroGradient;
+       /* type            inletOutlet;
+        inletValue      uniform (0 0 0);
+        value           $internalField;		//uniform (0 0 0);*/
+                
+    }
+
+    bottom
+    {
+        type        fixedValue;
+        value       uniform (0 1 0);
+    }
+
+    left
+    {
+        type            noSlip;
+    }
+
+    right
+    {
+         type           noSlip;
+        //value           uniform (0 0 0);
+        
+    }
+
+    front
+    {
+        type         	noSlip;
+       // value       uniform (0 0 0);
+    }
+
+    back
+    {
+        type         	noSlip;
+       // value       uniform (0 0 0);
+    }
+
+    cylinder
+    {
+        type         	noSlip;
+        //value       uniform (0 0 0);
+    }
+
+/*
+    top
+    {
+	//type		pressureInletOutletVelocity;
+	//value		$internalField;	//uniform (0 0 0);
+	type        	zeroGradient;
+    }
+
+    bottom
+    {
+	type            fixedValue;
+//        value           uniform (0 1 0);	//0.1 and 1 m/s
+        value           $internalField;	        
+        
+        //type            zeroGradient;
+	//type		pressureInletOutletVelocity;
+	//value		uniform (0.1 0 0);
+	//value           uniform (0 0 0);
+	//type		outletInlet;
+	//outletValue	uniform (1 0 0);
+    }
+
+    left
+    {
+	type		noSlip;
+    }
+
+    right
+    {
+	type		noSlip;
+    }
+
+    front
+    {
+	type		noSlip;
+    }
+
+    back
+    {
+	type		noSlip;
+    }
+
+    //OneCylinderAtCenter
+    Cylinder
+    {
+	type		noSlip;
+    } 
+*/           
+}
+
+
+// ************************************************************************* //

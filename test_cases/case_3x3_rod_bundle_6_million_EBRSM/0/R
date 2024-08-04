@@ -16,45 +16,54 @@ FoamFile
 
 dimensions      [ 0 2 -2 0 0 0 0 ];
 
-internalField   uniform (0.0025 0 0 0.0025 0 0.0025); //(1.718 0 0 1.718 0 1.718); // 2*k/3
+internalField   uniform (1.718 0 0 1.718 0 1.718); 
+//(0.0025 0 0 0.0025 0 0.0025); //(1.718 0 0 1.718 0 1.718); // 2*k/3
 
 boundaryField
 {
 
-top
+	top
     {
-        type            fixedValue;
-        value       uniform (1e-16 1e-16 1e-16 1e-16 1e-16 1e-16) ;
+        type        fixedValue;  //cyclic; 	//fixedValue;
+        value       uniform (1e-16 1e-16 1e-16 1e-16 1e-16 1e-16);	//$internalField;	
+        //uniform (1e-16 1e-16 1e-16 1e-16 1e-16 1e-16) ;
     }
 
     bottom
     {
-        type            zeroGradient;
+        type        fixedValue;  //cyclic; 	//fixedValue;
+        value       uniform (1e-16 1e-16 1e-16 1e-16 1e-16 1e-16);	//fixedValue;
+        //value       $internalField;	//uniform 0.00375;
     }
 
     left
     {
-        type            zeroGradient;
+        type            fixedValue;	//kqRWallFunction;
+        value       uniform (1e-16 1e-16 1e-16 1e-16 1e-16 1e-16) ;
     }
 
     right
     {
-        type        zeroGradient;
+        type            fixedValue;	//kqRWallFunction;
+        value       uniform (1e-16 1e-16 1e-16 1e-16 1e-16 1e-16) ;
     }
 
     front
     {
-        type            zeroGradient;
+        type            fixedValue;	//kqRWallFunction;
+        value       uniform (1e-16 1e-16 1e-16 1e-16 1e-16 1e-16) ;
     }
 
     back
     {
-        type            zeroGradient;
+        type            fixedValue;	//kqRWallFunction;
+        value       uniform (1e-16 1e-16 1e-16 1e-16 1e-16 1e-16) ;
     }
 
     cylinder
     {
-        type            zeroGradient;
+        type            fixedValue;	//kqRWallFunction;
+        value       uniform (1e-16 1e-16 1e-16 1e-16 1e-16 1e-16) ;
     }
     /*
     "(bottom|top)"

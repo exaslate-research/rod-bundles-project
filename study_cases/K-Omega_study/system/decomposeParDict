@@ -1,0 +1,47 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2306                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      decomposeParDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+numberOfSubdomains 8;
+
+method          simple;
+
+coeffs
+{
+    n           (1 8 1);
+}
+
+/*
+numberOfSubdomains 32;	//32;
+
+method		scotch;
+
+*/
+//We highly recommend you to use this method. The only input that requires from the user is the number of subdomains/cores. This method attempts to minimize the number of processor boundaries.
+
+// $> mpirun –np <NPROCS> <application/utility> –parallel
+// mpirun –np 64 snappyHexMesh –parallel
+//reconstructPar
+
+//------This will work------// "lscpu" command - check no. of cores
+//- decomposePar
+//- foamJob -parallel -screen snappyHexMesh
+//- reconstructParMesh -time 1 (it reconstructs the "castellatedMesh" step)
+//- reconstructParMesh -time 2 (it reconstructs the "snap" step)
+//- reconstructParMesh -time 3 (it reconstructs the "addLayers" step)
+
+//- reconstructParMesh -latestTime -mergeTol 1E-06 -noZero
+
+// ************************************************************************* //

@@ -17,7 +17,7 @@ FoamFile
 // Which of the steps to run
 castellatedMesh true;
 snap            true;//true;
-addLayers       true;// false;
+addLayers       false;// false;
 
 
 // Geometry. Definition of all surfaces. All surfaces are of class
@@ -33,7 +33,7 @@ geometry
         type closedTriSurfaceMesh;
         name cylinder;
     }
-    
+/*    
     left0.stl
     {
         type closedTriSurfaceMesh;
@@ -57,7 +57,7 @@ geometry
         type closedTriSurfaceMesh;
         name back;
     }
-    
+ */   
     
     
     
@@ -123,7 +123,7 @@ castellatedMeshControls
 //	      level (5 6);
             patchInfo { type wall; }
         }
-        
+/*        
        left 
         {
            level (1 1);

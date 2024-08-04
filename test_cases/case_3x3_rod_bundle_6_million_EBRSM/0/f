@@ -21,46 +21,46 @@ internalField   uniform 1;
 boundaryField
 {
 
-top
+    top
     {
-        type            fixedValue;
-        value       uniform 0;
+        type        fixedValue;	//cyclic;	//fixedValue;
+        value       uniform 0;		//$internalField;	//uniform 0;
     }
 
     bottom
     {
-        type            atmAlphatkWallFunction;
-        value       uniform 0.00375;
+       type        fixedValue;	//cyclic;	//fixedValue;
+        value       uniform 0;
     }
 
     left
     {
-        type            atmAlphatkWallFunction;
-        value       uniform 0.00375;
+        type        fixedValue;		//kqRWallFunction;
+        value       uniform 0;		//0.00375;
     }
 
     right
     {
-        type        atmAlphatkWallFunction;
-        value       uniform 0.00375;
+        type        fixedValue;		//kqRWallFunction;
+        value       uniform 0;		//0.00375;
     }
 
     front
     {
-        type            atmAlphatkWallFunction;
-        value       uniform 0.00375;
+        type        fixedValue;		//kqRWallFunction;
+        value       uniform 0;		//0.00375;
     }
 
     back
     {
-        type            atmAlphatkWallFunction;
-        value       uniform 0.00375;
+        type        fixedValue;		//kqRWallFunction;
+        value       uniform 0;		//0.00375;
     }
 
     cylinder
     {
-        type            atmAlphatkWallFunction;
-        value       uniform 0.00375;
+        type        fixedValue;		//kqRWallFunction;
+        value       uniform 0;		//0.00375;
     }
 
 /*

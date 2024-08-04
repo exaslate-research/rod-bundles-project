@@ -23,35 +23,27 @@ boundaryField
 
     top
     {
-    	//type            pressureInletOutletVelocity;
-        //value           $internalField;
-    	//type        fixedValue;
-        //value       $internalField;//uniform (0 0 0);
-        //type        zeroGradient;
+         type            kqRWallFunction;
+        value           $internalField;	              
+    }
+
+    bottom
+    {
+         type            kqRWallFunction;
+        value           $internalField;		
+    }
+
+    left
+    {
         type            inletOutlet;
         inletValue      $internalField;
         value           $internalField;              
     }
 
-    bottom
+    right
     {
         type        fixedValue;
         value      $internalField;	
-    }
-
-    left
-    {
-     	type            kqRWallFunction;
-        value           $internalField;			//uniform 14.855;
-      //type            noSlip;
-    }
-
-    right
-    {
-         type            kqRWallFunction;
-        value           $internalField;	
-        // type             noSlip;
-        //value           uniform (0 0 0);
         
     }
 

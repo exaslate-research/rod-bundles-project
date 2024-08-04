@@ -35,21 +35,22 @@ boundaryField
 
     bottom
     {
-        type        fixedValue;
+        type        kqRWallFunction;
         value       uniform 0.00375;
     }
 
     left
     {
-     	type            kqRWallFunction;
+     	type            fixedValue;
         value           uniform 0.00375;
       //type            noSlip;
     }
 
     right
     {
-         type            kqRWallFunction;
-        value           uniform 0.00375;
+        type            inletOutlet;
+        inletValue      $internalField;
+        value           $internalField; 
         // type             noSlip;
         //value           uniform (0 0 0);
         
