@@ -1,0 +1,108 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2306                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : a6e826bd55-20230630 OPENFOAM=2306 version=v2306
+Arch   : "LSB;label=32;scalar=64"
+Exec   : potentialFoam -parallel
+Date   : Aug 05 2024
+Time   : 13:57:27
+Host   : kummi
+PID    : 94488
+I/O    : uncollated
+Case   : /home/kummi/OpenFOAM/kummi-v2306/run/rod-bundles-project/test_cases/case_3x3_rod_bundle_6_million_EBRSM
+nProcs : 10
+Hosts  :
+(
+    (kummi 10)
+)
+Pstream initialized with:
+    floatTransfer      : false
+    nProcsSimpleSum    : 0
+    nonBlockingExchange: 0 (tuning: 0)
+    exchange algorithm : -1
+    commsType          : nonBlocking
+    polling iterations : 0
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+
+
+potentialFlow: Operating solver in PISO mode
+
+Reading velocity field U
+
+Constructing pressure field p
+
+Constructing velocity potential field Phi
+
+No MRF models present
+
+
+Calculating potential flow
+GAMG:  Solving for Phi, Initial residual = 1, Final residual = 0.0993788, No Iterations 572
+GAMG:  Solving for Phi, Initial residual = 0.000944329, Final residual = 9.39826e-05, No Iterations 126
+GAMG:  Solving for Phi, Initial residual = 0.000194434, Final residual = 1.93586e-05, No Iterations 262
+GAMG:  Solving for Phi, Initial residual = 8.09314e-05, Final residual = 8.06765e-06, No Iterations 146
+GAMG:  Solving for Phi, Initial residual = 2.72368e-05, Final residual = 2.71804e-06, No Iterations 182
+GAMG:  Solving for Phi, Initial residual = 1.11224e-05, Final residual = 1.11136e-06, No Iterations 150
+GAMG:  Solving for Phi, Initial residual = 4.53932e-06, Final residual = 4.49052e-07, No Iterations 152
+GAMG:  Solving for Phi, Initial residual = 2.01753e-06, Final residual = 1.9852e-07, No Iterations 73
+GAMG:  Solving for Phi, Initial residual = 9.41283e-07, Final residual = 9.28144e-08, No Iterations 111
+GAMG:  Solving for Phi, Initial residual = 4.80162e-07, Final residual = 4.77008e-08, No Iterations 60
+GAMG:  Solving for Phi, Initial residual = 2.53283e-07, Final residual = 2.5071e-08, No Iterations 55
+GAMG:  Solving for Phi, Initial residual = 1.42307e-07, Final residual = 1.41828e-08, No Iterations 45
+GAMG:  Solving for Phi, Initial residual = 8.10029e-08, Final residual = 9.66101e-09, No Iterations 37
+GAMG:  Solving for Phi, Initial residual = 4.94602e-08, Final residual = 9.05029e-09, No Iterations 3
+GAMG:  Solving for Phi, Initial residual = 3.21735e-08, Final residual = 9.13656e-09, No Iterations 2
+GAMG:  Solving for Phi, Initial residual = 2.32902e-08, Final residual = 9.68772e-09, No Iterations 1
+GAMG:  Solving for Phi, Initial residual = 1.80586e-08, Final residual = 8.82704e-09, No Iterations 2
+GAMG:  Solving for Phi, Initial residual = 1.44723e-08, Final residual = 9.33284e-09, No Iterations 1
+GAMG:  Solving for Phi, Initial residual = 1.27877e-08, Final residual = 8.64813e-09, No Iterations 1
+GAMG:  Solving for Phi, Initial residual = 1.08661e-08, Final residual = 9.28876e-09, No Iterations 1
+GAMG:  Solving for Phi, Initial residual = 1.07183e-08, Final residual = 8.30056e-09, No Iterations 1
+GAMG:  Solving for Phi, Initial residual = 9.25968e-09, Final residual = 9.25968e-09, No Iterations 0
+GAMG:  Solving for Phi, Initial residual = 9.25968e-09, Final residual = 9.25968e-09, No Iterations 0
+GAMG:  Solving for Phi, Initial residual = 9.25968e-09, Final residual = 9.25968e-09, No Iterations 0
+GAMG:  Solving for Phi, Initial residual = 9.25968e-09, Final residual = 9.25968e-09, No Iterations 0
+GAMG:  Solving for Phi, Initial residual = 9.25968e-09, Final residual = 9.25968e-09, No Iterations 0
+GAMG:  Solving for Phi, Initial residual = 9.25968e-09, Final residual = 9.25968e-09, No Iterations 0
+GAMG:  Solving for Phi, Initial residual = 9.25968e-09, Final residual = 9.25968e-09, No Iterations 0
+GAMG:  Solving for Phi, Initial residual = 9.25968e-09, Final residual = 9.25968e-09, No Iterations 0
+GAMG:  Solving for Phi, Initial residual = 9.25968e-09, Final residual = 9.25968e-09, No Iterations 0
+GAMG:  Solving for Phi, Initial residual = 9.25968e-09, Final residual = 9.25968e-09, No Iterations 0
+GAMG:  Solving for Phi, Initial residual = 9.25968e-09, Final residual = 9.25968e-09, No Iterations 0
+GAMG:  Solving for Phi, Initial residual = 9.25968e-09, Final residual = 9.25968e-09, No Iterations 0
+GAMG:  Solving for Phi, Initial residual = 9.25968e-09, Final residual = 9.25968e-09, No Iterations 0
+GAMG:  Solving for Phi, Initial residual = 9.25968e-09, Final residual = 9.25968e-09, No Iterations 0
+GAMG:  Solving for Phi, Initial residual = 9.25968e-09, Final residual = 9.25968e-09, No Iterations 0
+GAMG:  Solving for Phi, Initial residual = 9.25968e-09, Final residual = 9.25968e-09, No Iterations 0
+GAMG:  Solving for Phi, Initial residual = 9.25968e-09, Final residual = 9.25968e-09, No Iterations 0
+GAMG:  Solving for Phi, Initial residual = 9.25968e-09, Final residual = 9.25968e-09, No Iterations 0
+GAMG:  Solving for Phi, Initial residual = 9.25968e-09, Final residual = 9.25968e-09, No Iterations 0
+GAMG:  Solving for Phi, Initial residual = 9.25968e-09, Final residual = 9.25968e-09, No Iterations 0
+GAMG:  Solving for Phi, Initial residual = 9.25968e-09, Final residual = 9.25968e-09, No Iterations 0
+GAMG:  Solving for Phi, Initial residual = 9.25968e-09, Final residual = 9.25968e-09, No Iterations 0
+GAMG:  Solving for Phi, Initial residual = 9.25968e-09, Final residual = 9.25968e-09, No Iterations 0
+GAMG:  Solving for Phi, Initial residual = 9.25968e-09, Final residual = 9.25968e-09, No Iterations 0
+GAMG:  Solving for Phi, Initial residual = 9.25968e-09, Final residual = 9.25968e-09, No Iterations 0
+GAMG:  Solving for Phi, Initial residual = 9.25968e-09, Final residual = 9.25968e-09, No Iterations 0
+GAMG:  Solving for Phi, Initial residual = 9.25968e-09, Final residual = 9.25968e-09, No Iterations 0
+GAMG:  Solving for Phi, Initial residual = 9.25968e-09, Final residual = 9.25968e-09, No Iterations 0
+GAMG:  Solving for Phi, Initial residual = 9.25968e-09, Final residual = 9.25968e-09, No Iterations 0
+GAMG:  Solving for Phi, Initial residual = 9.25968e-09, Final residual = 9.25968e-09, No Iterations 0
+Continuity error = 1.85831e-08
+Interpolated velocity error = 2.91574e-09
+ExecutionTime = 387.83 s  ClockTime = 388 s
+
+End
+
+Finalising parallel run

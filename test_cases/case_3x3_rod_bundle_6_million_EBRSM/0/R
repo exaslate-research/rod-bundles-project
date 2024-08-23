@@ -1,7 +1,7 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  v2306                                 |
+|  \\    /   O peration     | Version:  2306                                  |
 |   \\  /    A nd           | Website:  www.openfoam.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
@@ -9,79 +9,59 @@ FoamFile
 {
     version     2.0;
     format      ascii;
+    arch        "LSB;label=32;scalar=64";
     class       volSymmTensorField;
+    location    "0";
     object      R;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [ 0 2 -2 0 0 0 0 ];
+dimensions      [0 2 -2 0 0 0 0];
 
-internalField   uniform (1.718 0 0 1.718 0 1.718); 
-//(0.0025 0 0 0.0025 0 0.0025); //(1.718 0 0 1.718 0 1.718); // 2*k/3
+internalField   uniform (0 0.0025 0 0 0.0025 0);	//(0 0.0025 0 0 0.0025 0.0025);	//0.0025
 
 boundaryField
 {
-
-	top
+    top
     {
-        type        fixedValue;  //cyclic; 	//fixedValue;
-        value       uniform (1e-16 1e-16 1e-16 1e-16 1e-16 1e-16);	//$internalField;	
-        //uniform (1e-16 1e-16 1e-16 1e-16 1e-16 1e-16) ;
+        //type            cyclic;
+        type            zeroGradient;
+        //type            fixedValue;
+        //value           uniform (1e-16 1e-16 1e-16 1e-16 1e-16 1e-16);        
     }
-
     bottom
     {
-        type        fixedValue;  //cyclic; 	//fixedValue;
-        value       uniform (1e-16 1e-16 1e-16 1e-16 1e-16 1e-16);	//fixedValue;
-        //value       $internalField;	//uniform 0.00375;
+        //type            cyclic;
+        type            zeroGradient;
+        //type            fixedValue;
+        //value           uniform (1e-16 1e-16 1e-16 1e-16 1e-16 1e-16);        
     }
-
     left
-    {
-        type            fixedValue;	//kqRWallFunction;
-        value       uniform (1e-16 1e-16 1e-16 1e-16 1e-16 1e-16) ;
-    }
-
-    right
-    {
-        type            fixedValue;	//kqRWallFunction;
-        value       uniform (1e-16 1e-16 1e-16 1e-16 1e-16 1e-16) ;
-    }
-
-    front
-    {
-        type            fixedValue;	//kqRWallFunction;
-        value       uniform (1e-16 1e-16 1e-16 1e-16 1e-16 1e-16) ;
-    }
-
-    back
-    {
-        type            fixedValue;	//kqRWallFunction;
-        value       uniform (1e-16 1e-16 1e-16 1e-16 1e-16 1e-16) ;
-    }
-
-    cylinder
-    {
-        type            fixedValue;	//kqRWallFunction;
-        value       uniform (1e-16 1e-16 1e-16 1e-16 1e-16 1e-16) ;
-    }
-    /*
-    "(bottom|top)"
     {
         type            fixedValue;
         value           uniform (1e-16 1e-16 1e-16 1e-16 1e-16 1e-16);
     }
-
-    "(inlet|outlet)"
+    right
     {
-        type            cyclic;
+        type            fixedValue;
+        value           uniform (1e-16 1e-16 1e-16 1e-16 1e-16 1e-16);
     }
-
-    leftAndRight
+    front
     {
-        type            empty;
-    }*/
-    
+        type            fixedValue;
+        value           uniform (1e-16 1e-16 1e-16 1e-16 1e-16 1e-16);
+    }
+    back
+    {
+        type            fixedValue;
+        value           uniform (1e-16 1e-16 1e-16 1e-16 1e-16 1e-16);
+    }
+    cylinder
+    {
+        type            zeroGradient;
+        //type            fixedValue;
+        //value           uniform (1e-16 1e-16 1e-16 1e-16 1e-16 1e-16);
+    }
 }
 
 

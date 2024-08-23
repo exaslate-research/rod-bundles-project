@@ -28,7 +28,7 @@ deltaT          1;		//0.0001;
 
 writeControl    timeStep;	//adjustableRunTime;//timestep;
 
-writeInterval   10;		//0.001;
+writeInterval   15;		//0.001;
 
 purgeWrite      0;
 

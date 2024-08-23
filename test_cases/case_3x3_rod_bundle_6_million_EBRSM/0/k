@@ -1,7 +1,7 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  v2306                                 |
+|  \\    /   O peration     | Version:  2306                                  |
 |   \\  /    A nd           | Website:  www.openfoam.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
@@ -9,7 +9,9 @@ FoamFile
 {
     version     2.0;
     format      ascii;
+    arch        "LSB;label=32;scalar=64";
     class       volScalarField;
+    location    "0";
     object      k;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -20,95 +22,43 @@ internalField   uniform 0.00375;
 
 boundaryField
 {
-
     top
     {
-    	//type            pressureInletOutletVelocity;
-        //value           $internalField;
-    	//type        fixedValue;
-        //value       $internalField;//uniform (0 0 0);
-//        type        zeroGradient;
         type            inletOutlet;
-        inletValue      $internalField;
-        value           $internalField;           
+        inletValue      uniform 0.00375;
+        value           uniform 0.00375;
     }
-
     bottom
     {
-        type        fixedValue;
-        value       uniform 0.00375;
+        type            fixedValue;
+        value           uniform 0.00375;
     }
-
     left
     {
-     	type            kqRWallFunction;
+        type            kqRWallFunction;
         value           uniform 0.00375;
-      //type            noSlip;
     }
-
     right
     {
-         type            kqRWallFunction;
+        type            kqRWallFunction;
         value           uniform 0.00375;
-        // type             noSlip;
-        //value           uniform (0 0 0);
-        
     }
-
     front
     {
-         type            kqRWallFunction;
+        type            kqRWallFunction;
         value           uniform 0.00375;
-        //type         	noSlip;
-       // value       uniform (0 0 0);
     }
-
     back
     {
-         type            kqRWallFunction;
+        type            kqRWallFunction;
         value           uniform 0.00375;
-        //type         noSlip;
-        //value       uniform (0 0 0);
     }
-
     cylinder
     {
         type            kqRWallFunction;
         value           uniform 0.00375;
-         //type         noSlip;
-        //value       uniform (0 0 0);
     }
 }
-/*boundaryField
-{
-    inlet
-    {
-        type            fixedValue;
-        value           uniform 0.375;
-    }
-
-    outlet
-    {
-        type            zeroGradient;
-    }
-
-    upperWall
-    {
-        type            kqRWallFunction;
-        value           uniform 0.375;
-    }
-
-    lowerWall
-    {
-        type            kqRWallFunction;
-        value           uniform 0.375;
-    }
-
-    frontAndBack
-    {
-        type            empty;
-    }
-}*/
 
 
 // ************************************************************************* //

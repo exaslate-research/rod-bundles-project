@@ -1,0 +1,114 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2306                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      k;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 2 -2 0 0 0 0];
+
+internalField   uniform 0.00375;
+
+boundaryField
+{
+
+    top
+    {
+    	//type            pressureInletOutletVelocity;
+        //value           $internalField;
+    	//type        fixedValue;
+        //value       $internalField;//uniform (0 0 0);
+//        type        zeroGradient;
+        type            inletOutlet;
+        inletValue      $internalField;
+        value           $internalField;           
+    }
+
+    bottom
+    {
+        type        fixedValue;
+        value       uniform 0.00375;
+    }
+
+    left
+    {
+     	type            kqRWallFunction;
+        value           uniform 0.00375;
+      //type            noSlip;
+    }
+
+    right
+    {
+         type            kqRWallFunction;
+        value           uniform 0.00375;
+        // type             noSlip;
+        //value           uniform (0 0 0);
+        
+    }
+
+    front
+    {
+         type            kqRWallFunction;
+        value           uniform 0.00375;
+        //type         	noSlip;
+       // value       uniform (0 0 0);
+    }
+
+    back
+    {
+         type            kqRWallFunction;
+        value           uniform 0.00375;
+        //type         noSlip;
+        //value       uniform (0 0 0);
+    }
+
+    rods
+    {
+        type            kqRWallFunction;
+        value           uniform 0.00375;
+         //type         noSlip;
+        //value       uniform (0 0 0);
+    }
+}
+/*boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           uniform 0.375;
+    }
+
+    outlet
+    {
+        type            zeroGradient;
+    }
+
+    upperWall
+    {
+        type            kqRWallFunction;
+        value           uniform 0.375;
+    }
+
+    lowerWall
+    {
+        type            kqRWallFunction;
+        value           uniform 0.375;
+    }
+
+    frontAndBack
+    {
+        type            empty;
+    }
+}*/
+
+
+// ************************************************************************* //

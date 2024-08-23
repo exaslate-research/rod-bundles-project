@@ -1,7 +1,7 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  v2306                                 |
+|  \\    /   O peration     | Version:  2306                                  |
 |   \\  /    A nd           | Website:  www.openfoam.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
@@ -9,7 +9,9 @@ FoamFile
 {
     version     2.0;
     format      ascii;
+    arch        "LSB;label=32;scalar=64";
     class       volScalarField;
+    location    "0";
     object      nuTilda;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -20,74 +22,36 @@ internalField   uniform 0;
 
 boundaryField
 {
-
     top
-    {
-    	type            zeroGradient;
-    }
-
-    bottom
-    {
-        type        fixedValue;
-        value       uniform 0;
-    }
-
-    left
-    {
-     	type            zeroGradient;
-    }
-
-    right
-    {
-       type            zeroGradient;
-        
-    }
-
-    front
-    {
-         type            zeroGradient;
-    }
-
-    back
     {
         type            zeroGradient;
     }
-
-    cylinder
-    {
-       type            zeroGradient;
-    }
-}
-
-/*
-boundaryField
-{
-    inlet
+    bottom
     {
         type            fixedValue;
         value           uniform 0;
     }
-
-    outlet
+    left
     {
         type            zeroGradient;
     }
-
-    upperWall
+    right
     {
         type            zeroGradient;
     }
-
-    lowerWall
+    front
     {
         type            zeroGradient;
     }
-
-    frontAndBack
+    back
     {
-        type            empty;
+        type            zeroGradient;
+    }
+    cylinder
+    {
+        type            zeroGradient;
     }
 }
-*/
+
 
 // ************************************************************************* //
