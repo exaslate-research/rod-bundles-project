@@ -8,11 +8,11 @@ surfaceFeatureExtract
 snappyHexMesh -overwrite
 touch a.foam
 decomposePar
-mpirun -np 8 potentialFoam -parallel
-mpirun -np 8 simpleFoam -parallel
+mpirun -np 12 simpleFoam -parallel
 reconstructPar
 ```
 
+urfaceTransformPoints -scale '(0.001 0.001 0.001)' wing.obj wing1.obj
 
 
 autoPatch 60 -overwrite 

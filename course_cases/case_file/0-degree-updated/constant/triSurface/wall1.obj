@@ -1,0 +1,20 @@
+# Wavefront OBJ file written 2024-10-11T11:24:40
+o wall1
+
+# points : 4
+# faces  : 2
+# zones  : 1
+#   0  zone0  (nFaces: 2)
+
+# <points count="4">
+v 0 -1.391 -0.425
+v 2.782 -1.391 -0.425
+v 2.782 -1.391 0.425
+v 0 -1.391 0.425
+# </points>
+
+# <faces count="2">
+g zone0
+f 1 2 3
+f 1 3 4
+# </faces>

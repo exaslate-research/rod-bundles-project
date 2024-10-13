@@ -24,7 +24,7 @@ coeffs
 }
 */
 
-numberOfSubdomains 32;	//32;
+numberOfSubdomains 12;	//32;
 
 method		scotch;
 
