@@ -14,8 +14,7 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-
-wing1.obj
+wing.obj
 {
     // How to obtain raw features (extractFromFile || extractFromSurface)
     extractionMethod    extractFromSurface;
@@ -24,7 +23,7 @@ wing1.obj
     // than includedAngle as features
     // - 0  : selects no edges
     // - 180: selects all edges
-    includedAngle       150;		//45, 90, 120, so so onnnn
+    includedAngle       150;
 
     subsetFeatures
     {

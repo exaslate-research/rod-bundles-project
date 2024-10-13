@@ -19,74 +19,30 @@ dimensions      [0 2 -2 0 0 0 0];
 internalField   uniform 0;
 
 boundaryField
-{    
+{
+    top
+    {
+        type            zeroGradient;
+    }
 
-   top
+    bottom
+    {
+        type            zeroGradient;
+    }
+
+    left
     {
         type            fixedValue;
         value       uniform 0;
-    }
-
-    bottom
-    {
-        type            zeroGradient;
-    }
-
-    left
-    {
-        type            zeroGradient;
+        //type            fixedFluxPressure;
+        //value           uniform 0;
     }
 
     right
     {
-        type        zeroGradient;
-    }
-
-    front
-    {
         type            zeroGradient;
-    }
-
-    back
-    {
-        type            zeroGradient;
-    }
-
-    cylinder
-    {
-        type            zeroGradient;
-    }
-}    
-/*
-    bottom
-    {
-        //type            fixedFluxPressure;
-        //value           uniform 0;
-        //type            zeroGradient;
-        //type            fixedFluxPressure;
-        //value           uniform 0;
-        type            zeroGradient;         
-    }
-
-    top
-    {
-        //type            fixedFluxPressure;
-        //value           uniform 0;
-        //type            zeroGradient;
-//        type            totalPressure;
+        //type            totalPressure;
         //p0              uniform 0;
-        type            fixedValue;
-        value           uniform 0;        
-    }
-
-    left
-    {
-        type            zeroGradient;
-    }
-
-    right
-    {
-        type            zeroGradient;
     }
 
     front
@@ -99,12 +55,11 @@ boundaryField
         type            zeroGradient;
     }
 
-    //OneCylinderAtCenter
-    Cylinder
+    wing
     {
         type            zeroGradient;
     }
-*/                
-//}
+}
+
 
 // ************************************************************************* //

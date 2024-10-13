@@ -12,7 +12,7 @@ mpirun -np 12 simpleFoam -parallel
 reconstructPar
 ```
 
-urfaceTransformPoints -scale '(0.001 0.001 0.001)' wing.obj wing1.obj
+surfaceTransformPoints -scale '(0.001 0.001 0.001)' wing.obj wing1.obj
 
 
 autoPatch 60 -overwrite 
