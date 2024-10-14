@@ -57,54 +57,5 @@ boundaryField
         type            zeroGradient;
     }
 }    
-/*
-    bottom
-    {
-        //type            fixedFluxPressure;
-        //value           uniform 0;
-        //type            zeroGradient;
-        //type            fixedFluxPressure;
-        //value           uniform 0;
-        type            zeroGradient;         
-    }
-
-    top
-    {
-        //type            fixedFluxPressure;
-        //value           uniform 0;
-        //type            zeroGradient;
-//        type            totalPressure;
-        //p0              uniform 0;
-        type            fixedValue;
-        value           uniform 0;        
-    }
-
-    left
-    {
-        type            zeroGradient;
-    }
-
-    right
-    {
-        type            zeroGradient;
-    }
-
-    front
-    {
-        type            zeroGradient;
-    }
-
-    back
-    {
-        type            zeroGradient;
-    }
-
-    //OneCylinderAtCenter
-    Cylinder
-    {
-        type            zeroGradient;
-    }
-*/                
-//}
 
 // ************************************************************************* //
